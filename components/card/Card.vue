@@ -19,7 +19,7 @@
       <br />
       <div class="flex h-60 justify-between items-end p-2">
         <div
-          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 border-2 rounded-md"
+          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md"
         >
           <p class="text-lg font-semibold">date</p>
           <div class="flex gap-2 p-1">
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div
-          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 border-2 rounded-md"
+          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md"
         >
           <p class="text-lg font-semibold">date</p>
           <div class="flex gap-2 p-1">
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div
-          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 border-2 rounded-md"
+          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md"
         >
           <p class="text-lg font-semibold">date</p>
           <div class="flex gap-2 p-1">
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div
-          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 border-2 rounded-md"
+          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md"
         >
           <p class="text-lg font-semibold">date</p>
           <div class="flex gap-2 p-1">
@@ -55,7 +55,7 @@
           </div>
         </div>
         <div
-          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 border-2 rounded-md"
+          class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md"
         >
           <p class="text-lg font-semibold">date</p>
           <div class="flex gap-2 p-1">
