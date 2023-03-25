@@ -1,18 +1,11 @@
 <script setup>
-import { ref } from 'vue';
-import { getCurrentForecast } from '../../helpers/api-helper'
-import { useProvincesStore } from '../../stores/provinces'
+import { useProvincesStore } from "../../stores/provinces";
 
-const provincesStore = useProvincesStore()
+const provincesStore = useProvincesStore();
 
-provincesStore.fetchCities()
+provincesStore.fetchCities();
 
-console.log(provincesStore.selectedCity)
-
-
-
-
-
+console.log(provincesStore.selectedCity);
 </script>
 
 <template>
@@ -32,8 +25,10 @@ console.log(provincesStore.selectedCity)
           v-for="city in provincesStore.cities"
           :key="city.name"
           :value="city.name"
-        >{{ city.name }}</option>
-    </select>
+        >
+          {{ city.name }}
+        </option>
+      </select>
     </div>
   </header>
 </template>

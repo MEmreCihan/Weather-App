@@ -1,11 +1,11 @@
 <script setup>
-import Card from "../components/card/Card.vue"
+import Card from "../components/card/Card.vue";
 
 definePageMeta({
   middleware: "auth",
 });
 useHead({
-  title: "My App Home",
+  title: "Weather Forecast",
   meta: [{ name: "description", content: "My amazing site." }],
   bodyAttrs: {
     class: "test",
@@ -14,5 +14,5 @@ useHead({
 </script>
 
 <template>
-  <Card />
+    <Card />
 </template>
