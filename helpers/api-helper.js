@@ -7,11 +7,11 @@ const instance = axios.create({
 })
 
 export const get5DaysForecast = (lat, lon) => {
-    let url = `/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    let url = `/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
     return instance.get(url)
 }
 
 export const getCurrentForecast = (lat, lon) => {
-    let url = `/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    let url = `/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
     return instance.get(url)
 }
