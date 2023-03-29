@@ -10,25 +10,25 @@ const { weeklyForecast } = storeToRefs(forecastStore);
 const provincesStore = useProvincesStore();
 const { selectedCity } = storeToRefs(provincesStore);
 
-const route = useRouter();
+const router = useRouter();
 
 // kullanici sehri sectiginde, koordinasyonlari al ve haftalik hava durumunu getir
-watch(selectedCity, (newValue, oldValue) => {
-  const { lat, lon } = provincesStore.cities.find((x) => x.name == newValue);
-  forecastStore.fetchWeeklyForecast(lat, lon);
-  route.push({ path: `/${selectedCity.value}` });
-  console.log("tetiklendi");
-});
+// watch(selectedCity, (newValue, oldValue) => {
+//   if(!!newValue) {
+//     const { lat, lon } = provincesStore.cities.find((x) => x.name == newValue);
+//     forecastStore.fetchWeeklyForecast(lat, lon);
+//   }
+// });
 
-const formatter = new Intl.DateTimeFormat("en-US");
+const formatter = new Intl.DateTimeFormat("tr-TR");
 
 const dateFormat = (date) => {
   const d = new Date(date);
   return formatter.format(d);
 };
 
-const showMore = (date) => {
-  route.push({ path: `/${selectedCity.value}/${date}` });
+const showMore = (date, i) => {
+  router.push({ path: `/${selectedCity.value}/${date}` });
 };
 </script>
 
@@ -63,41 +63,38 @@ const showMore = (date) => {
         <div class="h-1/4 text-white">
           <div class="flex justify-around">
             <p>
-              min: {{ Math.round(weeklyForecast[0].temp_min) }}°C - max:
+              Min: {{ Math.round(weeklyForecast[0].temp_min) }}°C - Max:
               {{ Math.round(weeklyForecast[0].temp_max) }}°C
             </p>
             <p>
-              wind: {{ Math.round(weeklyForecast[0].list[0].wind_speed) }}m/s
+              Wind: {{ Math.round(weeklyForecast[0].list[0].wind_speed) }}m/s
             </p>
             <p>
-              humidity: {{ Math.round(weeklyForecast[0].list[0].humidity) }}%
+              Humidity: {{ Math.round(weeklyForecast[0].list[0].humidity) }}%
             </p>
           </div>
           <div class="flex justify-around pt-10">
             <p>
-              feels like:
+              Feels Like:
               {{ Math.round(weeklyForecast[0].list[0].feels_like) }}°C
             </p>
             <p>
-              pressure: {{ Math.round(weeklyForecast[0].list[0].pressure) }}
+              Pressure: {{ Math.round(weeklyForecast[0].list[0].pressure) }}
             </p>
           </div>
         </div>
       </div>
       <div class="flex h-52 justify-between items-end px-2">
-        <template
-          v-for="(item, i) in weeklyForecast.slice(1)"
-          :key="i"
-          
-        >
+        <template v-for="(item, i) in weeklyForecast.slice(1)" :key="i">
           <div
-            class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md text-white" @click="showMore(item.date)"
+            class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md text-white"
+            @click="showMore(item.date, i)"
           >
             <p class="text-lg font-semibold">{{ dateFormat(item.date) }}</p>
-            <div class="flex gap-2 p-1">
-              <p>img</p>
+            <div class="flex gap-4 p-1">
+              <img :src="`https://openweathermap.org/img/wn/${item.icon}d@2x.png`" class="w-16 h-16"/>
               <p>
-                {{ Math.round(item.temp_min) }}°C-{{
+                {{ Math.round(item.temp_min) }}°C {{
                   Math.round(item.temp_max)
                 }}°C
               </p>

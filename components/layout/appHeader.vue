@@ -1,19 +1,28 @@
 <script setup>
+import { storeToRefs } from "pinia";
 import { useProvincesStore } from "../../stores/provinces";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const provincesStore = useProvincesStore();
+const { selectedCity } = storeToRefs(provincesStore);
 
-provincesStore.fetchCities();
+// kullanici sehri sectiginde, koordinasyonlari al ve haftalik hava durumunu getir
+watch(selectedCity, (newValue, oldValue) => {
+  router.push({ path: `/${selectedCity.value}` });
+});
 
-console.log(provincesStore.selectedCity);
+await provincesStore.fetchCities();
 </script>
 
 <template>
-  <header class="">
+  <header>
     <nav class="flex gap-6 justify-between items-center">
       <NuxtLink to="/">Home</NuxtLink>
       <h1 class="text-4xl">How Is The Weather</h1>
       <NuxtLink :to="'/about'">About</NuxtLink>
+      <NuxtLink :to="'/other'">Other</NuxtLink>
     </nav>
     <div class="flex justify-center items-center p-4">
       <select

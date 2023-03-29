@@ -15,3 +15,7 @@ export const getCurrentForecast = (lat, lon) => {
     let url = `/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
     return instance.get(url)
 }
+
+export const getProvinces = () => {
+    return axios.get("https://turkiyeapi.cyclic.app/api/v1/provinces")
+}

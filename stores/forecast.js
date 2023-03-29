@@ -46,6 +46,7 @@ export const useForecastStore = defineStore("forecast", () => {
           list: [necessaryData],
           temp_max: necessaryData.temp_max,
           temp_min: necessaryData.temp_min,
+          icon: necessaryData.icon.slice(0, -1),
         };
         dailyForecasts.push(obj);
       }
@@ -53,8 +54,6 @@ export const useForecastStore = defineStore("forecast", () => {
 
     weeklyForecast.value = dailyForecasts
   }
-
-  fetchWeeklyForecast("41.01384", "28.94966");
 
   return { weeklyForecast, fetchWeeklyForecast };
 });
