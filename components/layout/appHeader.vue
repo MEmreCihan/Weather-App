@@ -18,15 +18,14 @@ await provincesStore.fetchCities();
 
 <template>
   <header>
-    <nav class="flex gap-6 justify-between items-center">
-      <NuxtLink to="/">Home</NuxtLink>
-      <h1 class="text-4xl">How Is The Weather</h1>
-      <NuxtLink :to="'/about'">About</NuxtLink>
-      <NuxtLink :to="'/other'">Other</NuxtLink>
+    <nav class="flex justify-center items-center">
+      <NuxtLink to="/">
+        <h1 class="text-4xl text-center">How Is The Weather</h1>
+      </NuxtLink>
     </nav>
     <div class="flex justify-center items-center p-4">
       <select
-        class="border-2 h-8 w-60 rounded-lg shadow-md border-gray-300"
+        class="border-2 outline-none h-8 w-60 rounded-lg shadow-md border-gray-300"
         v-model="provincesStore.selectedCity"
       >
         <option disabled value="">Enter a city</option>

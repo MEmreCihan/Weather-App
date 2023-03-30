@@ -3,10 +3,6 @@ import Card from "../components/card/Card.vue";
 import { useProvincesStore } from "../stores/provinces";
 import { storeToRefs } from "pinia";
 
-
-definePageMeta({
-  middleware: "auth",
-});
 // SEO uyumlulugu icin server-side head yapisi
 useHead({
   title: "Weather Forecast",
@@ -23,7 +19,6 @@ useHead({
 
 const provincesStore = useProvincesStore();
 await provincesStore.setSelectedCity("İstanbul");
-
 </script>
 
 <template>

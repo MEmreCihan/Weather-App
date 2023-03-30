@@ -34,14 +34,18 @@ const showMore = (date, i) => {
 
 <template>
   <div class="flex justify-center relative" v-if="weeklyForecast.length > 0">
-    <img
-      class="w-[900px] h-[700px] opacity-100 bg-cover brightness-75 rounded-md"
-      :style="{
-        backgroundImage: `url(${getWeatherBg(weeklyForecast[0].list[0].main)})`,
-      }"
-    />
+    <div>
+      <img
+        class="w-screen md:w-[900px] sm:h-[630px] h-[500px] opacity-100 bg-cover brightness-75 rounded-md"
+        :style="{
+          backgroundImage: `url(${getWeatherBg(
+            weeklyForecast[0].list[0].main
+          )})`,
+        }"
+      />
+    </div>
     <div
-      class="w-[900px] h-[700px] border-2 rounded-md bg-cover bg-center absolute"
+      class="w-screen md:w-[900px] border-2 rounded-md bg-cover bg-center absolute p-1"
     >
       <h1 class="text-center font-serif font-bold text-3xl text-white py-2">
         {{ provincesStore.selectedCity }}
@@ -50,12 +54,12 @@ const showMore = (date, i) => {
       <div class="h-[400px]">
         <div class="h-3/4 flex justify-between items-center text-center">
           <div class="w-full">
-            <p class="text-8xl p-6 text-white">
+            <p class="md:text-8xl text-4xl p-6 text-white">
               {{ Math.round(weeklyForecast[0].list[0].temp) }} °C
             </p>
           </div>
           <div class="w-full">
-            <p class="text-4xl text-white">
+            <p class="md:text-4xl text-2xl text-white">
               {{ weeklyForecast[0].list[0].main }}
             </p>
           </div>
@@ -84,19 +88,21 @@ const showMore = (date, i) => {
           </div>
         </div>
       </div>
-      <div class="flex h-52 justify-between items-end px-2">
+      <div class="flex flex-wrap mt-10 justify-between items-end p-2">
         <template v-for="(item, i) in weeklyForecast.slice(1)" :key="i">
           <div
-            class="w-40 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md text-white"
+            class="w-36 text-center shadow-md cursor-pointer hover:-translate-y-2 duration-700 border-2 rounded-md text-white my-1"
             @click="showMore(item.date, i)"
           >
             <p class="text-lg font-semibold">{{ dateFormat(item.date) }}</p>
             <div class="flex gap-4 p-1">
-              <img :src="`https://openweathermap.org/img/wn/${item.icon}d@2x.png`" class="w-16 h-16"/>
+              <img
+                :src="`https://openweathermap.org/img/wn/${item.icon}d@2x.png`"
+                class="w-16 h-16"
+              />
               <p>
-                {{ Math.round(item.temp_min) }}°C {{
-                  Math.round(item.temp_max)
-                }}°C
+                {{ Math.round(item.temp_min) }}°C
+                {{ Math.round(item.temp_max) }}°C
               </p>
             </div>
           </div>
