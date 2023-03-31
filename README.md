@@ -1,8 +1,30 @@
-# Nuxt 3 Minimal Starter
+# Weather Forecast App
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## About
+
+With Weather Forecast App user can search a specific city in Turkey. And see 5 days forecast with 3 hours intervals.
+
+This project prepared with Nuxt3.js which includes:
+
+-Pinia
+
+-Tailwind.css (daisy.ui)
+
+-OpenWeatherApi
+
+-Vue libraries
+
+-Axios
+
+Here is a live link: [Weather Forecast](https://weather-app-xi-red.vercel.app/)
 
 ## Setup
+
+1.First clone the repo or download as a zip file.
+
+2.Open the file with VScode Editor.
+
+3.Then run the commands below in terminal.
 
 Make sure to install the dependencies:
 
@@ -19,24 +41,10 @@ pnpm install
 
 ## Development Server
 
-Start the development server on http://localhost:3000
+For the start the development server on http://localhost:3000
 
 ```bash
 npm run dev
 ```
 
 ## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
