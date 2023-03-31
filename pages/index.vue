@@ -1,7 +1,6 @@
 <script setup>
 import Card from "../components/card/Card.vue";
 import { useProvincesStore } from "../stores/provinces";
-import { storeToRefs } from "pinia";
 
 // SEO uyumlulugu icin server-side head yapisi
 useHead({

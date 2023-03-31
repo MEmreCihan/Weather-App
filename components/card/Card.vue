@@ -12,14 +12,6 @@ const { selectedCity } = storeToRefs(provincesStore);
 
 const router = useRouter();
 
-// kullanici sehri sectiginde, koordinasyonlari al ve haftalik hava durumunu getir
-// watch(selectedCity, (newValue, oldValue) => {
-//   if(!!newValue) {
-//     const { lat, lon } = provincesStore.cities.find((x) => x.name == newValue);
-//     forecastStore.fetchWeeklyForecast(lat, lon);
-//   }
-// });
-
 const formatter = new Intl.DateTimeFormat("tr-TR");
 
 const dateFormat = (date) => {

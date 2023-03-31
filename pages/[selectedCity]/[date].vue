@@ -14,7 +14,6 @@ await provincesStore.setSelectedCity(selectedCity);
 
 const forecastStore = useForecastStore();
 const dailyForecast = ref(forecastStore.weeklyForecast.find((x) => x.date == date));
-console.log(dailyForecast);
 
 const formatter = new Intl.DateTimeFormat("en-GB", { dateStyle: 'full'});
 

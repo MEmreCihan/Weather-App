@@ -23,12 +23,14 @@ useHead({
 <style>
 .pages-enter-active,
 .pages-leave-active {
-  transition: all 0.4s;
+  transition: all 0.4s ease;
 }
 .pages-enter-from,
 .pages-leave-to {
   opacity: 0;
   /* transform: rotate3d(1, 1, 1, 15deg); */
   filter: blur(1rem);
+  transform: translateX(100px);
+
 }
 </style>

@@ -2,18 +2,22 @@
 import { storeToRefs } from "pinia";
 import { useProvincesStore } from "../../stores/provinces";
 import { useRouter } from "vue-router";
+import VueMultiselect from "vue-multiselect";
 
 const router = useRouter();
 
 const provincesStore = useProvincesStore();
 const { selectedCity } = storeToRefs(provincesStore);
+const label = ref({});
 
 // kullanici sehri sectiginde, koordinasyonlari al ve haftalik hava durumunu getir
-watch(selectedCity, (newValue, oldValue) => {
+watch(label, (newValue, oldValue) => {
+  selectedCity.value = label.value.name;
   router.push({ path: `/${selectedCity.value}` });
 });
 
 await provincesStore.fetchCities();
+
 </script>
 
 <template>
@@ -24,19 +28,21 @@ await provincesStore.fetchCities();
       </NuxtLink>
     </nav>
     <div class="flex justify-center items-center p-4">
-      <select
-        class="border-2 outline-none h-8 w-60 rounded-lg shadow-md border-gray-300"
-        v-model="provincesStore.selectedCity"
-      >
-        <option disabled value="">Enter a city</option>
-        <option
-          v-for="city in provincesStore.cities"
-          :key="city.name"
-          :value="city.name"
+      <div class="w-60">
+        <VueMultiselect
+          v-model="label"
+          :options="provincesStore.cities"
+          :options-limit="7"
+          :allow-empty="false"
+          placeholder="Select a City"
+          label="name"
+          track-by="name"
+          deselect-label="Already selected"
         >
-          {{ city.name }}
-        </option>
-      </select>
+        </VueMultiselect>
+      </div>
     </div>
   </header>
 </template>
+
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>
